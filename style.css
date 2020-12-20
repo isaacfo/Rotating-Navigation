@@ -42,8 +42,13 @@ body {
   border-radius: 50%;
   position: relative;
   height: 200px;
-  transition: transform 05s linear;
+  transition: transform 0.5s linear;
   width: 200px;
+}
+
+/* to make the circle rotate and show the close button when the show-nav class it put on */
+.container.show-nav .circle {
+  transform: rotate(-70deg);
 }
 
 .circle button {
@@ -72,6 +77,68 @@ body {
   transform: rotate(90deg);
 }
 
+/* makes the nav li's visible by setting them to 0 on the x axis with show-nav class is on */
+.container.container.show-nav + nav li {
+  transform: translateX(0);
+  transition-delay: 0.3s;
+}
+
+nav {
+  position: fixed;
+  bottom: 40px;
+  left: 0;
+  z-index: 100;
+}
+
+nav ul {
+  list-style-type: none;
+  padding-left: 30px;
+}
+
+nav ul li {
+  text-transform: uppercase;
+  color: #fff;
+  margin: 40px 0;
+  transform: translateX(-100%);
+  transition: transform 0.4s ease-in;
+}
+
+nav ul li i {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+/* makes the the list items after the first one poke out to the right */
+nav ul li + li {
+  margin-left: 15px;
+  transform: translateX(-150%);
+}
+
+/* make the 3rd li stick out another 15px from the second one */
+nav ul li + li + li {
+  margin-left: 30px;
+  transform: translateX(-200%);
+}
+
 .content img {
   max-width: 100%;
+}
+
+.content {
+  margin: 50px auto;
+  max-width: 1000px;
+}
+
+.content h1 {
+  margin: 0;
+}
+
+.content small {
+  color: #555;
+  font-style: italic;
+}
+
+.content p {
+  color: #333;
+  line-height: 1.5;
 }
